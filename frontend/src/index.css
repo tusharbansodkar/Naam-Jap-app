@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@300;400;600;700&display=swap");
+
+@import "tailwindcss";
+
+/* CSS VARIABLES SETUP */
+:root {
+  /* Spiritual Palette */
+  --primary-saffron: #ff9933;
+  --primary-saffron-light: #ffb366;
+  --primary-saffron-dark: #cc7a29;
+
+  --bg-cream: #faf9f6;
+  --bg-white: #ffffff;
+
+  --text-main: #2d2d2d;
+  --text-muted: #6b7280;
+
+  --accent-gold: #d4af37;
+  --accent-green: #2e7d32; /* For completed malas/success */
+
+  /* Fonts */
+  --font-serif: "Lora", serif;
+  --font-sans: "Montserrat", sans-serif;
+}
+
+/* CSS RESET & BASE STYLES */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* Removes blue highlight on mobile tap */
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-(--bg-cream) text-(--text-main) antialiased;
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-spiritual {
+    font-family: var(--font-serif);
+    font-weight: 700;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-cream);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary-saffron-light);
+    border-radius: 10px;
+  }
+
+  /* Button Reset for mobile focus */
+  button:focus {
+    outline: none;
+  }
+
+  /* 3. UTILITY CLASSES (Optional specific components) */
+  @layer components {
+    .glass-card {
+      @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-sm rounded-2xl;
+    }
+
+    .btn-primary {
+      @apply bg-(--primary-saffron) text-white px-6 py-3 rounded-full font-bold 
+           transition-all duration-300 active:scale-95 hover:bg-(--primary-saffron-dark)
+           shadow-md hover:shadow-lg flex items-center justify-center gap-2;
+    }
+  }
+}
